@@ -1,3 +1,4 @@
+/* eslint-disable no-redeclare */
 /* eslint-disable vars-on-top */
 /* eslint-disable no-console */
 /* eslint-disable prefer-template */
@@ -16,4 +17,10 @@ peso += comida;
 peso -= ejercicio;
 
 var decimal = 200.3;
-var total = decimal * 3;
+
+var total = Math.round(decimal * 100 * 3) / 100;
+var totalStr = total.toFixed(3);
+var total2 = parseFloat(totalStr);
+var porciones = 8;
+var personas = 2;
+var cantidadPorcionPersona = porciones / personas;
