@@ -21,9 +21,30 @@ var jose = {
     edad: 20,
 };
 
-function imprimirMayusculas(nombre) {
-    nombre = nombre.toUpperCase();
-    console.log(nombre);
+function imprimirMayusculas(persona) {
+    // var persona = persona.nombre;//
+    var { nombre } = persona;
+    console.log(nombre.toUpperCase());
 }
 
-imprimirMayusculas(braulio.nombre);
+imprimirMayusculas(braulio);
+imprimirMayusculas(jose);
+imprimirMayusculas({ nombre: "Pepe" });
+
+function imprimirNombreEdad(persona) {
+    var { nombre } = persona;
+    var { edad } = persona;
+    console.log(`Hola me llamo ${nombre} y tengo ${edad} años`);
+}
+
+imprimirNombreEdad(braulio);
+imprimirNombreEdad(jose);
+
+function birthday(persona) {
+    return {
+        ...persona,
+        edad: persona.edad + 1,
+    };
+}
+
+var viejo = birthday(jose);
