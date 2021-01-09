@@ -20,7 +20,7 @@ var braulio = {
     edad: 16,
     peso: 70,
 };
-const RAZON = 0.200;
+const RAZON = 0.3;
 const DIAS_YEAR = 365;
 
 console.log(`Al inicio del año ${braulio.nombre} pesa ${braulio.peso} kg.`);
@@ -28,14 +28,25 @@ console.log(`Al inicio del año ${braulio.nombre} pesa ${braulio.peso} kg.`);
 const aumenta = (persona) => persona.peso += RAZON;
 const disminuye = (persona) => persona.peso -= RAZON;
 
-for (var i = 0; i <= DIAS_YEAR; i++) {
-    var random = Math.random();
+const comeMucho = () => Math.random() < 0.3; // Si es menor a 0.3 se ejecuta
+const realizaDeporte = () => Math.random() < 0.4; // Si es menor a 0.4 se ejecuta
+const META = braulio.peso - 10; // peso ideal
+let dias = 0;
 
-    if (random < 0.25) {
+while (braulio.peso > META) {
+    if (comeMucho()) {
         aumenta(braulio);
-    } else if (random < 0.5) {
+    }
+
+    if (realizaDeporte()) {
         disminuye(braulio);
     }
+    // no usamos else if porque en este caso, es una disyuncion inclusiva
+    // puede subir y ejercitar el mismo dia
+    dias += 1;
 }
 
-console.log(`Al final del año ${braulio.nombre} pesa ${(braulio.peso).toFixed(1)} kg.`);
+console.log(`Al final de ${dias} dias, ${braulio.nombre} pesa ${(braulio.peso).toFixed(1)} kg.`);
+
+// debugger: herramienta util para saber que esta pasando en el codigo, e indicarnos cada
+// accion que va realizando
