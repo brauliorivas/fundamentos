@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiempo en js</title>
+</head>
+<body>
+    <script>
+        // console.log(`a`);
+        // setTimeout(() => console.log(`b`), 0); // pasa a una segunda cola de tareas
+        // primero debe terminar todo el codigo "normal" y luego pasa a la cola secundaria
+        // output: a c b
+        // como es cero, no parece, pero idenpendientemente del tiempo, => segunda cola 
+        // console.log(`c`);
+        setTimeout(() => console.log("Hola"), 2000);
+        for ( var i = 0; i < 10000000000; i++) {
+        };
+    </script> 
+</body>
+</html>
