@@ -35,11 +35,17 @@ function onError(id) {
 }
 
 async function obtenerPersonas() {
-    var ids = [1, 2, 3, 4, 5];
+    var ids = [];
+    for (var i = 1; i <= 15; i++) {
+        ids.push(i);
+    }
     var promesas = ids.map((id) => obtenerPersonajes(id));
     try {
         var personas = await Promise.all(promesas);
         console.log(personas);
+        for (var x = 0; x <= 14; x++) {
+            console.log(`El personaje ${x + 1} es ${personas[x].name}`);
+        }
     } catch (id) {
         onError(id);
     }
